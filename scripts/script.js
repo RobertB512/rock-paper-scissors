@@ -1,8 +1,3 @@
-// ----- steps to make the game -----
-// declare needed variables and functions
-    // make a function that will play multiple rounds
-        // might be able to use a loop
-        
 // computer picks rock, paper, or scissors
 function getComputerChoice() {
   let ranNum = Math.floor(Math.random() * 3) + 1
@@ -22,27 +17,65 @@ function getComputerChoice() {
 
 // set player and computer choices
 let computerMove = getComputerChoice();
-let playerMove = "rock"; // this will eventually come from a choice made through the UI
+let player = "rock"; // this will eventually come from a choice made through the UI
 
-// play a round Rock Paper Scissors
-function gameRound(player, computer) {
-  // define parameters
-  player = playerMove.toLowerCase();
-  computer = computerMove;
+
+// play a round of the game
+function gameRound(playerMove, computerMove) {
+  // parameters
+  playerMove = player
+  computerMove = getComputerChoice();
 
   // compare the player's and computer's choice
-  if (player === computer) {
-    console.log(`TIE: ${player} and ${computer} are even`);
-  } else if (player === "rock" && computer === "scissors") {
-    console.log(`player wins ${player} beats ${computer}`);
-  } else if (player === "paper" && computer === "rock") {
-    console.log(`player wins ${player} beats ${computer}`);
-  } else if (player === "scissors" && computer === "paper") {
-    console.log(`player wins ${player} beats ${computer}`);
+  if (playerMove === computerMove) {
+    console.log(`TIE`);
+    return "tie"
+  } else if (playerMove === "rock" && computerMove === "scissors") {
+    console.log(`player wins ${playerMove} beats ${computerMove}`);
+    return "player wins"
+  } else if (playerMove === "paper" && computerMove === "rock") {
+    console.log(`player wins ${playerMove} beats ${computerMove}`);
+    return "player wins"
+  } else if (playerMove === "scissors" && computerMove === "paper") {
+    console.log(`player wins ${playerMove} beats ${computerMove}`);
+    return "player wins"
   } else {
-    console.log(`computer wins ${computer} beats ${player}`);
+    console.log(`computer wins ${computerMove} beats ${playerMove}`);
+    return "computer wins"
   }
 }
-gameRound()
+
+
+// play several rounds of the game
+function playGame() {
+  let playerScore = 0;
+  let computerScore = 0;
+  
+  for (let i = 0; i < 5; i++) {
+    let round = gameRound()
+    if (round === "player wins") {
+      playerScore++
+    } else if (round === "computer wins") {
+      computerScore++
+    }
+    
+  }
+  console.log(`player: ${playerScore}`)
+  console.log(`computer: ${computerScore}`)
+
+  if (playerScore > computerScore) {
+    console.log(`player wins`)
+  } else if (computerScore > playerScore) {
+    console.log(`computer wins`)
+  } else if (playerScore === computerScore) {
+    console.log("TIE")
+  }
+}
+
+playGame()
+
+
+
+
 
 
