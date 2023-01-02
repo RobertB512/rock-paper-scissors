@@ -7,11 +7,38 @@
   <title>Rock Paper Scissors</title>
 </head>
 <body>
-  
+  <h1>Rock Paper Scissors</h1>
+  <main class="game-ui">
+      <section class="choice-box">
+        <button class="choose-rock choose-move">Rock</button>
+        <button class="choose-paper choose-move">Paper</button>
+        <button class="chose-scissors choose-move">Scissors</button>
+      </section>
+      <section class="game-area">
+        <article class="player-area move-area">
+          <h3 class="name-lbl">Player</h3>Player</h3>
+          <div class="player-move game-move"></div>
+          <p class="score-lbl">Score</p>
+          <div class="player-score score-box"></div>
+        </article>
+        <article class="middle-content">
+          <h2 class="versus-lbl">VS</h2>
+          <p class="game-message"></p>
+        </article>
+        
 
+        <section class="computer-area move-area">
+          <h3 class="name-lbl">Computer</h3>
+          <div class="computer-move game-move"></div>
+          <p class="score-lbl">Score</p>
+          <div class="computer-score score-box"></div>
+        </section>
+      </section>
+ </main>
 
 
   <!-- scripts -->
   <script src="./scripts/script.js"></script>
+
 </body>
 </html>

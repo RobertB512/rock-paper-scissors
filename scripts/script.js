@@ -47,32 +47,34 @@ function gameRound(playerMove, computerMove) {
 
 
 // play several rounds of the game
-function playGame() {
-  let playerScore = 0;
-  let computerScore = 0;
+// function playGame() {
+//   let playerScore = 0;
+//   let computerScore = 0;
   
-  for (let i = 0; i < 5; i++) {
-    let round = gameRound()
-    if (round === "player wins") {
-      playerScore++
-    } else if (round === "computer wins") {
-      computerScore++
-    }
+//   for (let i = 0; i < 5; i++) {
+//     let round = gameRound()
+//     if (round === "player wins") {
+//       playerScore++
+//     } else if (round === "computer wins") {
+//       computerScore++
+//     }
     
-  }
-  console.log(`player: ${playerScore}`)
-  console.log(`computer: ${computerScore}`)
+//   }
+//   console.log(`player: ${playerScore}`)
+//   console.log(`computer: ${computerScore}`)
 
-  if (playerScore > computerScore) {
-    console.log(`player wins`)
-  } else if (computerScore > playerScore) {
-    console.log(`computer wins`)
-  } else if (playerScore === computerScore) {
-    console.log("TIE")
-  }
-}
+//   if (playerScore > computerScore) {
+//     console.log(`player wins`)
+//   } else if (computerScore > playerScore) {
+//     console.log(`computer wins`)
+//   } else if (playerScore === computerScore) {
+//     console.log("TIE")
+//   }
+// }
 
-playGame()
+gameRound()
+
+// playGame()
 
 
 
