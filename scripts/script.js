@@ -1,3 +1,12 @@
+// select DOM elements
+let moveSelection = document.querySelectorAll(".choose-move");
+const showPlayerMove = document.querySelector(".show-player-move");
+const showComputerMove = document.querySelector(".show-computer-move");
+let playerScoreBox = document.querySelector(".player-score-box");
+let computerScoreBox = document.querySelector(".computer-score-box");
+let gameMessage = document.querySelector(".game-message");
+
+
 // computer picks rock, paper, or scissors
 function getComputerChoice() {
   let ranNum = Math.floor(Math.random() * 3) + 1
