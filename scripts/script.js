@@ -17,8 +17,14 @@ let playerMoveImg = document.createElement("img");
 computerMoveImg.classList.add("move-img");
 playerMoveImg.classList.add("move-img");
 
-function getPlayerChoice() {
+let playerScore = 0;
+let computerScore = 0;
+playerScoreBox.textContent = playerScore.toString();
+computerScoreBox.textContent = computerScore.toString();
+
+function getPlayerChoiceAndPlay() {
   let player;
+
   moveSelection.forEach(choice => choice.addEventListener("click", () => {
     if (choice.textContent?.toLowerCase() === "rock") {
       player = "rock";
@@ -31,7 +37,10 @@ function getPlayerChoice() {
       playerMoveImg.setAttribute("src", "./images/scissors.jpg");
     }
     showPlayerMove?.append(playerMoveImg);
-    return gameRound(player, getComputerChoice());
+    // fullGame()
+    let result = gameRound(player, getComputerChoice());
+    fullGame(result)
+    
   }));
   // return player;
 }
@@ -57,34 +66,6 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-// function displayPlayerAndComputer() {
-//   return [getPlayerChoice(), getComputerChoice()]
-// }
-
-// set player and computer choices
-
-
-// let player;
-// moveSelection.forEach(choice => choice.addEventListener("click", () => {
-//   if (choice.textContent?.toLowerCase() === "rock") {
-//     player = "rock";
-//     playerMoveImg.setAttribute("src", "./images/rocks.jpg");
-//   } else if (choice.textContent?.toLowerCase() === "paper") {
-//     player = "paper";
-//     playerMoveImg.setAttribute("src", "./images/paper.jpg");
-//   } else {
-//     player = "scissors";
-//     playerMoveImg.setAttribute("src", "./images/scissors.jpg");
-//   }
-
-// }));
-// showPlayerMove?.append(playerMoveImg);
-
-
-// let computerMove = getComputerChoice();
-
-
-
 // play a round of the game
 function gameRound(playerMove, computerMove) {
   // parameters
@@ -100,55 +81,58 @@ function gameRound(playerMove, computerMove) {
     return "tie";
   } else if (playerMove === "rock" && computerMove === "scissors") {
     console.log(`player wins ${playerMove} beats ${computerMove}`);
-    gameMessage.textContent = `Player wins: ${playerMove} beats ${computerMove}`
+    gameMessage.textContent = `Player wins: ${playerMove} beats ${computerMove}`;
+    return "player wins";
   } else if (playerMove === "paper" && computerMove === "rock") {
     console.log(`player wins ${playerMove} beats ${computerMove}`);
-    gameMessage.textContent = `Player wins: ${playerMove} beats ${computerMove}`
+    gameMessage.textContent = `Player wins: ${playerMove} beats ${computerMove}`;
     return "player wins";
   } else if (playerMove === "scissors" && computerMove === "paper") {
     console.log(`player wins ${playerMove} beats ${computerMove}`);
-    gameMessage.textContent = `Player wins: ${playerMove} beats ${computerMove}`
+    gameMessage.textContent = `Player wins: ${playerMove} beats ${computerMove}`;
     return "player wins";
   } else {
     console.log(`computer wins ${computerMove} beats ${playerMove}`);
-    gameMessage.textContent = `Computer wins: ${computerMove} beats ${playerMove}`
+    gameMessage.textContent = `Computer wins: ${computerMove} beats ${playerMove}`;
     return "computer wins";
   }
 }
 
-
+let rounds = 0;
 // play several rounds of the game
-// function playGame() {
-//   let playerScore = 0;
-//   let computerScore = 0;
+function fullGame(result) {
+  // let playerScore = 0;
+  // let computerScore = 0;
   
-//   for (let i = 0; i < 5; i++) {
-//     let round = gameRound()
-//     if (round === "player wins") {
-//       playerScore++
-//     } else if (round === "computer wins") {
-//       computerScore++
-//     }
-    
-//   }
-//   console.log(`player: ${playerScore}`)
-//   console.log(`computer: ${computerScore}`)
+  // let rounds = 1;
+  // for (let rounds = 1; rounds <= 5; rounds++) {
+    if (result === "player wins") {
+      playerScore += 1;
+      playerScoreBox.textContent = playerScore.toString();
+    } else if (result === "computer wins") {
+      computerScore += 1;
+      computerScoreBox.textContent = computerScore.toString();
+    }
+    rounds++;
+    console.log(`player: ${playerScore}`);
+    console.log(`computer: ${computerScore}`);
+    console.log(`rounds: ${rounds}`);
+    // break
+    if (rounds === 5) {
+      if (playerScore > computerScore) {
+        console.log(`player wins`);
+        gameMessage.textContent = "YOU WIN! Refresh the page to play again.";
+      } else if (computerScore > playerScore) {
+        console.log(`computer wins`);
+        gameMessage.textContent = "GAME OVER! Refresh the page to try again.";
+      } else if (playerScore === computerScore) {
+        console.log("TIE");
+      }
+      moveSelection.forEach(btn => btn.setAttribute("disabled", "disabled"));
+    }    
+  // }
+  
+ 
+}
 
-//   if (playerScore > computerScore) {
-//     console.log(`player wins`)
-//   } else if (computerScore > playerScore) {
-//     console.log(`computer wins`)
-//   } else if (playerScore === computerScore) {
-//     console.log("TIE")
-//   }
-// }
-
-getPlayerChoice()
-
-// playGame()
-
-
-
-
-
-
+getPlayerChoiceAndPlay()

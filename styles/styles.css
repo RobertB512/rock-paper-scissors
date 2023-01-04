@@ -73,6 +73,12 @@ p, .choose-move {
 .choose-move:active {
   background-color: hsl(120, 100%, 25%);
 }
+.choose-move:disabled {
+  background-color: hsl(210, 13%, 50%);
+}
+.choose-move:disabled:active {
+  background-color: hsl(210, 13%, 50%);
+}
 /* move area styles */
 .game-area {
   display: flex;
