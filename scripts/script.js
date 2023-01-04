@@ -96,18 +96,22 @@ function gameRound(playerMove, computerMove) {
   // compare the player's and computer's choice
   if (playerMove === computerMove) {
     console.log(`TIE`);
+    gameMessage.textContent = "TIE";
     return "tie";
   } else if (playerMove === "rock" && computerMove === "scissors") {
     console.log(`player wins ${playerMove} beats ${computerMove}`);
-    return "player wins";
+    gameMessage.textContent = `Player wins: ${playerMove} beats ${computerMove}`
   } else if (playerMove === "paper" && computerMove === "rock") {
     console.log(`player wins ${playerMove} beats ${computerMove}`);
+    gameMessage.textContent = `Player wins: ${playerMove} beats ${computerMove}`
     return "player wins";
   } else if (playerMove === "scissors" && computerMove === "paper") {
     console.log(`player wins ${playerMove} beats ${computerMove}`);
+    gameMessage.textContent = `Player wins: ${playerMove} beats ${computerMove}`
     return "player wins";
   } else {
     console.log(`computer wins ${computerMove} beats ${playerMove}`);
+    gameMessage.textContent = `Computer wins: ${computerMove} beats ${playerMove}`
     return "computer wins";
   }
 }
