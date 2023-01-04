@@ -1,12 +1,6 @@
 // TODO
-// - click a button and have it's move img appear on in the player's play area
-  // - if rock, show a rock img
-  // - if paper, sow a paper img
-  // - if scissors, show a scissors img
-// - based on a random number the computer chooses, have it's move img appear in the computer's play area
-  // - if 1, show rock img
-  // - if 2 show paper img
-  // - if 3 scissors img
+// - when a button is pressed, then player's image and computer's image are displayed and the game starts
+      // - a new round starts each time a button is pressed
 // - each round display a message saying who won the round and increases the corresponding score by 1
 // - when someone reaches a score of 5, display a message declaring who won and end the game so no further rounds can be played
 
@@ -23,6 +17,24 @@ let playerMoveImg = document.createElement("img");
 computerMoveImg.classList.add("move-img");
 playerMoveImg.classList.add("move-img");
 
+function getPlayerChoice() {
+  let player;
+  moveSelection.forEach(choice => choice.addEventListener("click", () => {
+    if (choice.textContent?.toLowerCase() === "rock") {
+      player = "rock";
+      playerMoveImg.setAttribute("src", "./images/rocks.jpg");
+    } else if (choice.textContent?.toLowerCase() === "paper") {
+      player = "paper";
+      playerMoveImg.setAttribute("src", "./images/paper.jpg");
+    } else {
+      player = "scissors";
+      playerMoveImg.setAttribute("src", "./images/scissors.jpg");
+    }
+    showPlayerMove?.append(playerMoveImg);
+    return gameRound(player, getComputerChoice());
+  }));
+  // return player;
+}
 
 // computer picks rock, paper, or scissors
 function getComputerChoice() {
@@ -45,49 +57,58 @@ function getComputerChoice() {
   return computerChoice;
 }
 
+// function displayPlayerAndComputer() {
+//   return [getPlayerChoice(), getComputerChoice()]
+// }
+
 // set player and computer choices
 
-let computerMove = getComputerChoice();
-let player;
-// this will eventually come from a choice made through the UI
-moveSelection.forEach(choice => choice.addEventListener("click", () => {
-  if (choice.textContent?.toLowerCase() === "rock") {
-    player = "rock";
-    playerMoveImg.setAttribute("src", "./images/rocks.jpg");
-  } else if (choice.textContent?.toLowerCase() === "paper") {
-    player = "paper";
-    playerMoveImg.setAttribute("src", "./images/paper.jpg");
-  } else {
-    player = "scissors";
-    playerMoveImg.setAttribute("src", "./images/scissors.jpg");
-  }
 
-}));
-showPlayerMove?.append(playerMoveImg)
+// let player;
+// moveSelection.forEach(choice => choice.addEventListener("click", () => {
+//   if (choice.textContent?.toLowerCase() === "rock") {
+//     player = "rock";
+//     playerMoveImg.setAttribute("src", "./images/rocks.jpg");
+//   } else if (choice.textContent?.toLowerCase() === "paper") {
+//     player = "paper";
+//     playerMoveImg.setAttribute("src", "./images/paper.jpg");
+//   } else {
+//     player = "scissors";
+//     playerMoveImg.setAttribute("src", "./images/scissors.jpg");
+//   }
+
+// }));
+// showPlayerMove?.append(playerMoveImg);
+
+
+// let computerMove = getComputerChoice();
+
 
 
 // play a round of the game
 function gameRound(playerMove, computerMove) {
   // parameters
-  playerMove = player
-  computerMove = getComputerChoice();
+  // computerMove = getComputerChoice();
+  // playerMove = getPlayerChoice();
+  console.log(playerMove);
+  console.log(computerMove);
 
   // compare the player's and computer's choice
   if (playerMove === computerMove) {
     console.log(`TIE`);
-    return "tie"
+    return "tie";
   } else if (playerMove === "rock" && computerMove === "scissors") {
     console.log(`player wins ${playerMove} beats ${computerMove}`);
-    return "player wins"
+    return "player wins";
   } else if (playerMove === "paper" && computerMove === "rock") {
     console.log(`player wins ${playerMove} beats ${computerMove}`);
-    return "player wins"
+    return "player wins";
   } else if (playerMove === "scissors" && computerMove === "paper") {
     console.log(`player wins ${playerMove} beats ${computerMove}`);
-    return "player wins"
+    return "player wins";
   } else {
     console.log(`computer wins ${computerMove} beats ${playerMove}`);
-    return "computer wins"
+    return "computer wins";
   }
 }
 
@@ -118,7 +139,7 @@ function gameRound(playerMove, computerMove) {
 //   }
 // }
 
-gameRound()
+getPlayerChoice()
 
 // playGame()
 
