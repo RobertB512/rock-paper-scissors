@@ -18,8 +18,10 @@ const showComputerMove = document.querySelector(".show-computer-move");
 let playerScoreBox = document.querySelector(".player-score-box");
 let computerScoreBox = document.querySelector(".computer-score-box");
 let gameMessage = document.querySelector(".game-message");
-let moveImg = document.createElement("img");
-moveImg.classList.add("move-img");
+let computerMoveImg = document.createElement("img");
+let playerMoveImg = document.createElement("img");
+computerMoveImg.classList.add("move-img");
+playerMoveImg.classList.add("move-img");
 
 
 // computer picks rock, paper, or scissors
@@ -29,23 +31,40 @@ function getComputerChoice() {
  
   if (ranNum === 1) {
     computerChoice = "rock";
-    moveImg.setAttribute("src", "./images/rocks.jpg");
+    computerMoveImg.setAttribute("src", "./images/rocks.jpg");
   } else if (ranNum === 2) {
     computerChoice = "paper";
-    moveImg.setAttribute("src", "./images/paper.jpg");
+    computerMoveImg.setAttribute("src", "./images/paper.jpg");
   } else if (ranNum === 3) {
     computerChoice = "scissors";
-    moveImg.setAttribute("src", "./images/scissors.jpg");
+    computerMoveImg.setAttribute("src", "./images/scissors.jpg");
   } else {
     console.log("computer could not pick a choice");
   }
-  showComputerMove?.append(moveImg)
+  showComputerMove?.append(computerMoveImg)
   return computerChoice;
 }
 
 // set player and computer choices
+
 let computerMove = getComputerChoice();
-// let player = "rock"; // this will eventually come from a choice made through the UI
+let player;
+// this will eventually come from a choice made through the UI
+moveSelection.forEach(choice => choice.addEventListener("click", () => {
+  if (choice.textContent?.toLowerCase() === "rock") {
+    player = "rock";
+    playerMoveImg.setAttribute("src", "./images/rocks.jpg");
+  } else if (choice.textContent?.toLowerCase() === "paper") {
+    player = "paper";
+    playerMoveImg.setAttribute("src", "./images/paper.jpg");
+  } else {
+    player = "scissors";
+    playerMoveImg.setAttribute("src", "./images/scissors.jpg");
+  }
+
+}));
+showPlayerMove?.append(playerMoveImg)
+
 
 // play a round of the game
 function gameRound(playerMove, computerMove) {
