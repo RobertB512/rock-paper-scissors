@@ -16,7 +16,7 @@ body {
   gap: 3rem;
   background-color: hsl(241, 86%, 17%);
   padding: 3rem;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 /* ----- text styles ----- */
@@ -124,6 +124,23 @@ p, .choose-move {
   text-align: center;
 }
 
+footer {
+  flex-direction: column;
+  color: #fff;
+  width: 100%;
+}
+footer li {
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+.attrib-links ul {
+  list-style: none;
+}
+
+/* responsive area */
 @media (max-width: 930px) {
   .game-move {
     width: 20rem;
