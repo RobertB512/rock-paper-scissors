@@ -103,7 +103,6 @@ function fullGame(result) {
     console.log(`player: ${playerScore}`);
     console.log(`computer: ${computerScore}`);
     console.log(`rounds: ${rounds}`);
-    // break
     if (rounds === 5) {
       if (playerScore > computerScore) {
         console.log(`player wins`);

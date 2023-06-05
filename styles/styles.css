@@ -29,6 +29,9 @@ p {
 h1, .score-box {
   font-size: 5rem;
 }
+h1 {
+  text-align: center;
+}
 h2 {
   font-size: 4rem;
 }
@@ -52,6 +55,8 @@ p, .choose-move {
 /* move choice styles */
 .choice-box {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
 }
 .choose-move {
@@ -137,24 +142,8 @@ h4 {
 
 /* responsive area */
 @media (max-width: 930px) {
-  .game-move {
-    width: 20rem;
-    height: 20rem;
-  }
-}
-
-@media (max-width: 740px) {
   .game-area {
-    gap: 1.5rem;
-  }
-  .game-move {
-    width: 15rem;
-    height: 15rem;
-    border: 1rem solid 
-  border: 2.5rem solid hsl(235, 39%, 54%);
-  }
-  h2 {
-    font-size: 2.5rem;
+    flex-direction: column;
   }
 }
 
@@ -162,53 +151,28 @@ h4 {
   body {
     gap: 1rem;
   }
-  h1, .score-box {
-    font-size: 2.5rem;
-  }
-  p, .choose-move {
-    font-size: 1.8rem;
-  }
-  .choose-move {
-    width: 8rem;
-    padding: 0.25rem;
-  }
-  .game-area{
-    flex-direction: column;
-  }
-  h2 {
-    font-size: 1.8rem;
-  }
-  .game-move {
-    width: 12rem;
-    height: 12rem;
-  }
   .middle-content {
     width: 30rem;
-  }
-  h3 {
-    font-size: 2rem;
-  }
-  .score-box {
-    width: 8.5rem;
-    height: 3rem;
   }
 }
 
 @media (max-width: 400px) {
   h1, .score-box {
-    font-size: 2rem;
+    font-size: 3rem;
   }
   p, .choose-move {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .game-ui {
     gap: 0.5rem;
   }
-  .choose-move {
-    width: 7rem;
+  .game-move {
+    width: 22rem;
+    height: 22rem;
+    border: 2rem solid hsl(235, 39%, 54%);
   }
   .score-box {
     width: 7.5rem;
-    height: 2rem;
+    height: fit-content;
   }
 }
