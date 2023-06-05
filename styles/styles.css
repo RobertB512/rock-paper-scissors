@@ -14,9 +14,8 @@ body {
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  background-color: hsl(241, 86%, 17%);
+  background-color: #000000;
   padding: 3rem;
-  /* height: 100vh; */
 }
 
 /* ----- text styles ----- */
@@ -25,20 +24,16 @@ h2,
 h3,
 .choose-move,
 p {
-  color: hsl(0, 0%, 100%);
+  color: hsl(239, 100%, 90%);
 }
 h1, .score-box {
   font-size: 5rem;
 }
 h2 {
   font-size: 4rem;
-  text-decoration: underline;
 }
 h3 {
   font-size: 8rem;
-  /* border: 0.1rem solid white;
-  border-radius: 50%;
-  padding: 2rem; */
 }
 p, .choose-move {
   font-size: 3rem;
@@ -64,14 +59,14 @@ p, .choose-move {
   padding: 1rem 0.5rem;
   border: none;
   border-radius: 1rem;
-  background-color: hsl(120, 100%, 25%);
+  background-color: hsl(237, 76%, 76%);
   color: hsl(0, 0%, 100%);
 }
 .choose-move:hover {
-  background-color: hsl(120, 100%, 35%);
+  background-color: hsl(237, 76%, 65%);
 }
 .choose-move:active {
-  background-color: hsl(120, 100%, 25%);
+  background-color: hsl(237, 76%, 76%);
 }
 .choose-move:disabled {
   background-color: hsl(210, 13%, 50%);
@@ -85,7 +80,6 @@ p, .choose-move {
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  /* width: 20rem; */
 }
 .move-area {
   display: flex;
@@ -96,9 +90,9 @@ p, .choose-move {
 .game-move {
   width: 30rem;
   height: 30rem;
-  border: 2.5rem solid hsl(60, 100%, 50%);
+  border: 2.5rem solid hsl(235, 39%, 54%);
   border-radius: 50%;
-  background-color: hsl(0, 0%, 100%);
+  background-color: hsl(239, 100%, 90%);
 }
 .move-img {
   width: 100%;
@@ -118,15 +112,13 @@ p, .choose-move {
 .middle-content {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
   width: 20rem;
   text-align: center;
 }
 
 footer {
   flex-direction: column;
-  color: #fff;
+  color: hsl(0, 0%, 100%);
   width: 100%;
 }
 footer li {
@@ -138,6 +130,9 @@ h4 {
 }
 .attrib-links ul {
   list-style: none;
+}
+.attrib-links a {
+  color: hsl(235, 39%, 54%);
 }
 
 /* responsive area */
@@ -155,7 +150,8 @@ h4 {
   .game-move {
     width: 15rem;
     height: 15rem;
-    border: 1rem solid hsl(60, 100%,50%);
+    border: 1rem solid 
+  border: 2.5rem solid hsl(235, 39%, 54%);
   }
   h2 {
     font-size: 2.5rem;
