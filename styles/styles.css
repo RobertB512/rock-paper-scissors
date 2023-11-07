@@ -95,7 +95,7 @@ p, .choose-move {
 .game-move {
   width: 30rem;
   height: 30rem;
-  border: 2.5rem solid hsl(235, 39%, 54%);
+  border: 2.5rem solid hsl(60, 100%, 50%);
   border-radius: 50%;
   background-color: hsl(239, 100%, 90%);
 }
